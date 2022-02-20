@@ -1,6 +1,6 @@
--astropy
--gpytorch
--Pillow
--pykrige
--scikit-image
--scipy
+astropy
+gpytorch
+Pillow
+pykrige
+scikit-image
+scipy
