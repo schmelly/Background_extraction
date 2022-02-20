@@ -32,6 +32,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: bg-c11.3-win
-          path: ./build/cuda-11.3-win/background-extraction-win-c11.3.exe
+          path: ./dist/background-extraction-win-c11.3.exe
       #- name: Release
       #  uses: softprops/action-gh-release@v1
