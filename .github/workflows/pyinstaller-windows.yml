@@ -22,7 +22,10 @@ jobs:
           python-version: '3.9'
       - uses: actions/checkout@v2
       - name: install dependencies
-        run: pip install setuptools wheel pyinstaller && pip install -r requirements.txt
+        run: |
+          pip install setuptools wheel pyinstaller && \
+          pip install -r requirements-c11.3-win.txt -f https://download.pytorch.org/whl/cu113/torch_stable.html \
+          pip install -r requirements.txt
       - name: bundle be-c11.3-win
         run: pyinstaller.exe --clean -F ./releng/cuda-11.3-win.spec
       - name: store artifacts
