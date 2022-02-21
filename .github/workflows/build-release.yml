@@ -1,4 +1,4 @@
-name: Build Release
+name: build-release
 
 on:
   # Allows you to run this workflow manually from the Actions tab
