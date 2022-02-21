@@ -56,9 +56,11 @@ jobs:
     needs: [build-linux, build-windows]
     steps:
       - name: download linux artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: background-extraction-linux
       - name: download windows artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: background-extraction-win64.exe
       - name: create release
