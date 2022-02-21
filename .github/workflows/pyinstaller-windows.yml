@@ -28,14 +28,13 @@ jobs:
           pip install -r requirements.txt
       - name: bundle be-c11.3-win
         run: pyinstaller.exe --clean -F ./releng/cuda-11.3-win.spec
-      - uses: edgarrc/action-7z@v1
-        with:
-          args: 7z a -t7z -mx=9 ./dist/background-extraction-win-c11.3.7z ./dist/background-extraction-win-c11.3
+      - name: compress background-extraction-win-c11.3
+        run: Compress-Archive -Path ./dist/background-extraction-win-c11.3/* -DestinationPath ./dist/background-extraction-win-c11.3.zip
       - name: store artifacts
         uses: actions/upload-artifact@v2
         with:
           name: bg-c11.3-win
-          path: ./dist/background-extraction-win-c11.3.7z
+          path: ./dist/background-extraction-win-c11.3.zip
           retention-days: 5
       #- name: Release
       #  uses: softprops/action-gh-release@v1
