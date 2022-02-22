@@ -68,8 +68,8 @@ jobs:
       - name: store artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: background-extraction-macos-x86_64.dmg
-          path: ./dist/background-extraction-macos-x86_64.dmg
+          name: background-extraction-macos-x86_64
+          path: ./dist/background-extraction-macos-x86_64
           retention-days: 1
 
   release:
@@ -88,11 +88,11 @@ jobs:
       - name: download macos artifacts
         uses: actions/download-artifact@v2
         with:
-          name: background-extraction-macos-x86_64.dmg
+          name: background-extraction-macos-x86_64
       - name: create release
         uses: softprops/action-gh-release@v1
         with:
-          files: background-extraction-macos-x86_64.dmg
+          files: background-extraction-macos-x86_64
           # files: |
           #   background-extraction-linux
           #   background-extraction-win64.exe
