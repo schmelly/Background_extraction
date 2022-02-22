@@ -62,7 +62,7 @@ jobs:
       - name: install dependencies
         run: |
           pip install setuptools wheel pyinstaller && \
-          pip install -r requirements.txt
+          pip install -r requirements-macos.txt
       - name: create background-extraction-macos-x86_64 bundle
         run: pyinstaller --onefile --target-architecture x86_64 -n background-extraction-macos-x86_64 ./src/gui.py
       - name: store artifacts
