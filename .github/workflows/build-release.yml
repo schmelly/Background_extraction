@@ -64,7 +64,7 @@ jobs:
           pip install setuptools wheel pyinstaller && \
           pip install -r requirements.txt
       - name: create background-extraction-macos-x86_64 bundle
-        run: pyinstaller --onefile --target-architecture arm64 -n background-extraction-macos-x86_64 ./src/gui.py
+        run: pyinstaller --onefile --target-architecture x86_64 -n background-extraction-macos-x86_64 ./src/gui.py
       - name: store artifacts
         uses: actions/upload-artifact@v2
         with:
