@@ -14,6 +14,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 
+msgid "Crop"
+msgstr "Zuschneiden"
+
+msgid "Crop mode on/off"
+msgstr "Zuschnittsmodus an/aus"
+
+msgid "Apply crop"
+msgstr "Zuschnitt anwenden"
+
+msgid "Background Extraction"
+msgstr "Hintergrundentfernung"
 
 #: src/gui.py:147
 msgid " Loading"
@@ -21,11 +32,14 @@ msgstr " Laden"
 
 #: src/gui.py:152
 msgid "Load Image"
-msgstr "Lade Bild"
+msgstr "Bild laden"
 
 #: src/gui.py:160
 msgid " Stretch Options"
 msgstr " Stretchoptionen"
+
+msgid "Saturation"
+msgstr "Farbsättigung"
 
 #: src/gui.py:176
 msgid " Sample Selection"
@@ -33,7 +47,11 @@ msgstr " Punktauswahl"
 
 #: src/gui.py:176
 msgid "Display points"
-msgstr "Zeige Punkte"
+msgstr "Punkte anzeigen"
+
+#: src/gui.py:176
+msgid "Flooded generation"
+msgstr "Geflutete Generierung"
 
 #: src/gui.py:185 src/gui.py:191
 msgid "Points per row: {}"
@@ -45,7 +63,7 @@ msgstr "Gittertoleranz: {}"
 
 #: src/gui.py:231
 msgid "Create Grid"
-msgstr "Erstelle Gitter"
+msgstr "Gitter erstellen"
 
 #: src/gui.py:237
 msgid "Reset Sample Points"
@@ -61,7 +79,7 @@ msgstr "Interpolationsmethode"
 
 #: src/gui.py:287
 msgid "Calculate Background"
-msgstr "Berechne Hintergrund"
+msgstr "Hintergrund berechnen"
 
 #: src/gui.py:294
 msgid " Saving"
@@ -69,11 +87,15 @@ msgstr " Speichern"
 
 #: src/gui.py:308
 msgid "Save Background"
-msgstr "Speichere Hintergrund"
+msgstr "Hintergrund speichern"
 
 #: src/gui.py:315
 msgid "Save Processed"
-msgstr "Speichere Bild"
+msgstr "Bild speichern"
+
+#: src/gui.py:422
+msgid "Save Stretched & Processed"
+msgstr "Gestretchtes Bild speichern"
 
 #: src/gui.py:345
 msgid "An error occurred while loading your picture."
@@ -87,9 +109,6 @@ msgstr "Bitte zuerst ein Bild laden."
 msgid "Error occured when saving the image."
 msgstr "Ein Fehler ist beim Speichern des Bildes aufgetreten."
 
-#:src/gui.py:505
-msgid "Please load your picture first."
-msgstr "Bitte zuerst ein Bild laden."
 
 #: src/gui.py:471
 msgid "Please select background points with left click."
@@ -204,6 +223,12 @@ msgstr "Samplefarbe: {}"
 msgid "Spline order"
 msgstr "Grad der Splines"
 
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Correction"
+msgstr "Korrektur"
+
 #: src/loadingframe.py:18
 msgid "Calculating..."
 msgstr "Berechne..."
@@ -240,6 +265,9 @@ msgstr "Die Toleranz bestimmt einen Schwellwert für das Ignorieren von Punkten 
 msgid "Adjust the number of points per row for the grid created by automatic background selection."
 msgstr "Bestimmt die Anzahl an Punkten pro Reihe, die mit der Gitterauswahl erstellt werden"
 
+msgid "If enabled, additional grid points are automatically created based on 1) the luminance of the sample just added and 2) the grid tolerance slider below."
+msgstr "Wenn aktiviert, werden automatisch zusätzliche Gitterpunkte erstellt, die 1) auf der Luminanz des soeben hinzugefügten Punkts und 2) auf dem Toleranz-Schieberegler (s.u.) basieren."
+
 #: src/tooltip.py:173
 msgid "Choose between different interpolation methods."
 msgstr "Wähle zwischen verschiedenen Interpolationsmethoden"
@@ -260,11 +288,14 @@ msgstr "Bestimme die Bittiefe des gespeicherten Bildes sowie das Format. Falls d
 
 #: src/tooltip.py:186
 msgid "Save the background model"
-msgstr "Speichere das Hintergrundmodell."
+msgstr "Speichere das Hintergrundmodell"
 
 #: src/tooltip.py:187
 msgid "Save the processed picture"
-msgstr "Speichere das bearbeitete Bild."
+msgstr "Speichere das bearbeitete Bild"
+
+msgid "Save the stretched and processed picture. The color saturation is not changed."
+msgstr "Speichere das gestretchte und bearbeitete Bild. Die Farbsättigung wird dabei nicht verändert."
 
 #: src/tooltip.py:189
 msgid ""

@@ -71,6 +71,10 @@ msgstr ""
 msgid "Save Processed"
 msgstr ""
 
+#: src/gui.py:422
+msgid "Save Stretched & Processed"
+msgstr ""
+
 #: src/gui.py:345
 msgid "An error occurred while loading your picture."
 msgstr ""
@@ -174,6 +178,9 @@ msgstr ""
 
 #: src/tooltip.py:170
 msgid "Adjust the number of points per row for the grid created by automatic background selection."
+msgstr ""
+
+msgid "If enabled, additional grid points are automatically created based on 1) the luminance of the sample just added and 2) the grid tolerance slider below."
 msgstr ""
 
 #: src/tooltip.py:173

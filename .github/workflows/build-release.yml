@@ -8,17 +8,17 @@ on:
 jobs:
   
   build-linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10'
       - name: checkout repository
         uses: actions/checkout@v3
       - name: install dependencies
         run: |
-          pip install setuptools wheel pyinstaller && \
+          pip install setuptools wheel pyinstaller==5.6.2 && \
           pip install -r requirements.txt
       - name: patch version
         run: |
@@ -38,17 +38,17 @@ jobs:
           retention-days: 5
 
   build-linux-zip:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10'
       - name: checkout repository
         uses: actions/checkout@v3
       - name: install dependencies
         run: |
-          pip install setuptools wheel pyinstaller && \
+          pip install setuptools wheel pyinstaller==5.6.2 && \
           pip install -r requirements.txt
       - name: patch version
         run: |
@@ -77,7 +77,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10'
       - name: checkout repository
         uses: actions/checkout@v3
       - name: checkout pyinstaller
@@ -85,16 +85,18 @@ jobs:
         with:
           repository: pyinstaller/pyinstaller
           path: ./pyinstaller
-          ref: v5.0
+          ref: v5.6.2
       - name: install dependencies
         run: |
           pip install setuptools wheel && `
           cd .\pyinstaller\bootloader && `
+          (Get-Content .\wscript) -Replace "'run'", "'graxpert'" | Set-Content .\wscript && `
           (Get-Content .\src\main.c) -Replace 'pyi_main\(', 'my_pyi_main(' | Set-Content .\src\main.c && `
           (Get-Content .\src\pyi_main.h) -Replace 'pyi_main\(', 'my_pyi_main(' | Set-Content .\src\pyi_main.h && `
           (Get-Content .\src\pyi_main.c) -Replace 'pyi_main\(', 'my_pyi_main(' | Set-Content .\src\pyi_main.c && `
           python ./waf all && `
           cd .. && `
+          (Get-Content .\setup.py) -Replace 'run.exe', 'graxpert.exe' | Set-Content .\setup.py && `
           python setup.py install && `
           cd .. && `
           pip install -r requirements.txt
@@ -119,7 +121,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10'
       - name: checkout repository
         uses: actions/checkout@v3
       - name: checkout pyinstaller
@@ -127,16 +129,18 @@ jobs:
         with:
           repository: pyinstaller/pyinstaller
           path: ./pyinstaller
-          ref: v5.0
+          ref: v5.6.2
       - name: install dependencies
         run: |
           pip install setuptools wheel && `
           cd .\pyinstaller\bootloader && `
+          (Get-Content .\wscript) -Replace "'run'", "'graxpert'" | Set-Content .\wscript && `
           (Get-Content .\src\main.c) -Replace 'pyi_main\(', 'my_pyi_main(' | Set-Content .\src\main.c && `
           (Get-Content .\src\pyi_main.h) -Replace 'pyi_main\(', 'my_pyi_main(' | Set-Content .\src\pyi_main.h && `
           (Get-Content .\src\pyi_main.c) -Replace 'pyi_main\(', 'my_pyi_main(' | Set-Content .\src\pyi_main.c && `
           python ./waf all && `
           cd .. && `
+          (Get-Content .\setup.py) -Replace 'run.exe', 'graxpert.exe' | Set-Content .\setup.py && `
           python setup.py install && `
           cd .. && `
           pip install -r requirements.txt
@@ -161,12 +165,12 @@ jobs:
     runs-on: macos-10.15
     steps:
       - name: setup python
-        run: brew install python-tk@3.9
+        run: brew install python-tk@3.10
       - name: checkout repository
         uses: actions/checkout@v3
       - name: install dependencies
         run: |
-          pip3 install setuptools wheel pyinstaller && \
+          pip3 install setuptools wheel pyinstaller==5.6.2 && \
           pip3 install -r requirements.txt
       - name: patch version
         run: |
