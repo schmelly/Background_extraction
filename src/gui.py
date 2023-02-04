@@ -606,8 +606,10 @@ class Application(tk.Frame):
        
        try:
            self.images["Processed"].save(dir, self.saveas_type.get())
-       except:
-           messagebox.showerror("Error", _("Error occured when saving the image."))
+       except Exception as e:
+           msg = _("Error occured when saving the image.")
+           logging.exception(msg)
+           messagebox.showerror("Error", msg)
            
        self.loading_frame.end()
 
@@ -646,8 +648,10 @@ class Application(tk.Frame):
                self.images["Original"].save_stretched(dir, self.saveas_type.get())
            else:
                self.images["Processed"].save_stretched(dir, self.saveas_type.get())
-       except:
-           messagebox.showerror("Error", _("Error occured when saving the image."))
+       except Exception as e:
+           msg = _("Error occured when saving the image.")
+           logging.exception(msg)
+           messagebox.showerror("Error", msg)
            
        self.loading_frame.end()
        
@@ -683,8 +687,10 @@ class Application(tk.Frame):
         
         try:
             self.images["Background"].save(dir, self.saveas_type.get())
-        except:
-            messagebox.showerror("Error", _("Error occured when saving the image."))
+        except Exception as e:
+            msg = _("Error occured when saving the image.")
+            logging.exception(msg)
+            messagebox.showerror("Error", msg)
             
         self.loading_frame.end()
         
