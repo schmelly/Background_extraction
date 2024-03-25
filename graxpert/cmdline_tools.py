@@ -12,7 +12,7 @@ from graxpert.astroimage import AstroImage
 from graxpert.background_extraction import extract_background
 from graxpert.preferences import Prefs, load_preferences, save_preferences
 from graxpert.s3_secrets import bge_bucket_name, denoise_bucket_name
-from graxpert.denoising import denoise
+from graxpert.denoising import denoise, denoise_opt
 
 user_preferences_filename = os.path.join(user_config_dir(appname="GraXpert"), "preferences.json")
 
@@ -252,6 +252,13 @@ class DenoiseCmdlineTool(CmdlineToolBase):
                 preferences.denoise_strength
             ))
         processed_Astro_Image.save(self.get_save_path(), self.get_output_file_format())
+        processed_Astro_Image.set_from_array(
+            denoise_opt(
+                astro_Image.img_array,
+                ai_model_path,
+                preferences.denoise_strength
+            ))
+        processed_Astro_Image.save(self.get_save_path() + ".opt.fits", self.get_output_file_format())
 
     def get_ai_version(self, prefs):
         user_preferences = load_preferences(user_preferences_filename)
